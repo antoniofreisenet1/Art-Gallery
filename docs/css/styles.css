@@ -1,0 +1,35 @@
+h3.photo-title{
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+}
+
+img.photo-image{
+    max-width: 25%;
+    height:auto;
+}
+
+div.photo-block{
+    text-align: center;
+    image-rendering: auto;
+}
+
+div.header-block{
+    text-align: center;
+    background-color: grey;
+    border: 1px solid black;
+}
+
+#columna-form{
+    border: 1px solid blue;
+    padding: 5%;
+    border-radius: 2%;
+}
+
+#comment-box{
+    border: 1px solid blue;
+    padding: 5%;
+    border-radius: 2%;
+    max-height: 250px;
+    overflow: auto;
+}

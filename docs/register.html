@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+
+        shrink-to-fit=no">
+
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="/css/styles.css">
+
+        <script src="/js/libs/jquery-3.4.1.min.js"></script>
+
+        <script src="/js/libs/popper.min.js"></script>
+
+        <script src="/js/libs/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class = "container">
+      <div class = "row justify-content-md-center">
+        <div class = "col-md-7" id = "columna-form">
+
+          <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" class="form-control" id="nameInput">
+          </div>
+
+          <div class="form-group">
+            <label for="surnameInput">Surname</label>
+            <input type="text" class="form-control" id="surnameInput">
+          </div>
+
+          <div class = "form-group">
+              <label for="phoneInput">Enter your phone number:</label>
+              <input type="tel" class = "form-control" id="phoneInput" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" aria-describedby="phoneHelp">
+              <small id = "phoneHelp" class = "form-text text-muted">Introduce a phone number with the format NNN NNN NNN</small>
+          </div>
+
+          <div class="form-group">
+            <label for="emailInput">Email address</label>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+
+          <div class="form-group">
+              <label for="usernameInput">Username</label>
+              <input type="text" class="form-control" id="usernameInput">
+            </div>
+
+          <div class="form-group">
+            <label for="passwordInput">Password</label>
+            <input type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelpBlock">
+            <small id="passwordHelpBlock" class="form-text text-muted">
+              Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+            </small>
+          </div>
+
+          <div class="form-group">
+              <label for="fileInput">Submit a profile picture!</label>
+              <input type="file" class="form-control-file" id="fileInput">
+          </div>
+
+        <a class="btn btn-primary" href="index.html" role="button">Register</a>
+
+        <hr>
+
+        <div>
+          
+          <div>
+              Already have an account? Log in instead!
+          </div>
+
+          <a class="btn btn-secondary" href="login.html" role="button">Login</a>
+        </div>
+
+    
+    </div>
+
+</body>
