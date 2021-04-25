@@ -33,3 +33,17 @@ div.header-block{
     max-height: 250px;
     overflow: auto;
 }
+
+#tags-box{
+    border: 1px solid cyan;
+    text-emphasis-color: white;
+    padding: 5%;
+    max-height: 250px;
+    overflow:auto;
+}
+
+#main-picture{
+    image-rendering: auto;
+    padding-top: 50%;
+
+}
