@@ -1,11 +1,13 @@
 "use strict"
 
 import { photosAPI } from "./api/photos.js";
+import {photosRenderer} from "/js/renderers/photos.js";
 import {messageRenderer} from "/js/renderers/messages.js";
+import {sessionManager} from "/js/utils/session.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const photoId = urlParams.get("photoId");
-let currentPhoto = null;
+
 
 function _(id) {
     return document.getElementById(id);
@@ -13,13 +15,23 @@ function _(id) {
 
 function main(){
 
+    loadPhotoDetails();
+    hideActionsColumn();
+
     let deleteBtn = document.getElementById("delete-photo-button");
     deleteBtn.onclick = handleDeletePhoto;
 
-    if(photoId !== null) {
-            loadPhotoInfo();
-    }
+    let editBtn = document.getElementById("edit-photo-button");
+    editBtn.onclick = handelEditPhoto;
 
+}
+
+function hideActionsColumn(){
+    if(!sessionManager.isLogged()){
+        let actionColumn = document.getElementById("actions-col");
+        actionColumn.style.display = "none";
+        
+    }
 }
 
 

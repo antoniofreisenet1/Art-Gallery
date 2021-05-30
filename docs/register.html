@@ -16,7 +16,9 @@
 
         <script src="/js/libs/bootstrap.min.js"></script>
 
-        <script src = "/js/register.js" type = "module"></script>
+        <script src = "/js/register.js"></script>
+
+        <script src = "/js/libs/axios.min.js"></script>
 </head>
 
 <body>
@@ -26,34 +28,34 @@
 
           <div class="form-group">
             <label for="nameInput">Name</label>
-            <input type="text" class="form-control" id="nameInput">
+            <input type="text" name = "firstName" class="form-control" id="nameInput">
           </div>
 
           <div class="form-group">
             <label for="surnameInput">Surname</label>
-            <input type="text" class="form-control" id="surnameInput">
+            <input type="text" name = "lastName" class="form-control" id="surnameInput">
           </div>
 
           <div class = "form-group">
               <label for="phoneInput">Enter your phone number:</label>
-              <input type="tel" class = "form-control" id="phoneInput" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" aria-describedby="phoneHelp">
+              <input type="tel" name = "telephone" class = "form-control" id="phoneInput" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" aria-describedby="phoneHelp">
               <small id = "phoneHelp" class = "form-text text-muted">Introduce a phone number with the format NNN NNN NNN</small>
           </div>
 
           <div class="form-group">
             <label for="emailInput">Email address</label>
-            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp">
+            <input type="email" name = "email" class="form-control" id="emailInput" aria-describedby="emailHelp">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
 
           <div class="form-group">
               <label for="usernameInput">Username</label>
-              <input type="text" class="form-control" id="usernameInput">
+              <input type="text" name = "username" class="form-control" id="usernameInput">
             </div>
 
           <div class="form-group">
             <label for="passwordInput">Password</label>
-            <input type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelpBlock">
+            <input type="password" name = "password" class="form-control" id="passwordInput" aria-describedby="passwordHelpBlock">
             <small id="passwordHelpBlock" class="form-text text-muted">
               Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
             </small>
@@ -61,7 +63,7 @@
 
           <div class="form-group">
               <label for="fileInput">Submit a profile picture!</label>
-              <input type="file" class="form-control-file" id="fileInput">
+              <input type="file" name = "avatarUrl" class="form-control-file" id="fileInput">
           </div>
 
         <a class="btn btn-primary" href="index.html" role="button">Register</a>

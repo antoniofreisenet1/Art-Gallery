@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <head>
+    <title>Login form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,
 
-    shrink-to-fit=no">
+        shrink-to-fit=no">
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/styles.css">
 
-    <script src="/js/libs/jquery-3.4.1.min.js"></script>
+        <script src="/js/libs/jquery-3.4.1.min.js"></script>
 
-    <script src="/js/libs/popper.min.js"></script>
+        <script src="/js/libs/popper.min.js"></script>
 
-    <script src="/js/libs/bootstrap.min.js"></script>
+        <script src="/js/libs/bootstrap.min.js"></script>
+
+        <script src="/js/utils/include.js"></script>
+
+        <script src = "/js/login.js"></script>
+
 </head>
+
 <body>
+    <div id = "header"></div>
+
     <div class = "container">
-        <div class = "row justify-content-md-center">
-            <div class = "col-md-7" id = "columna-form">
-                <form>
-                    <div class="form-group">
-                        <label for="usernameInput">Username</label>
-                        <input type="text" class="form-control" id="usernameInput">
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="passwordInput">Password</label>
-                        <input type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelpBlock">
-                    </div>
-                    <a class="btn btn-primary" href="index.html" role="button">Login</a>
-                </form>
+      <div class = "row justify-content-md-center">
+        <div class = "col-md-7" id = "columna-form">
+            <div class = "col-md">
+                <h1>Log in</h1>
+                
             </div>
-        </div>
-    </div>
+            <hr>
+
+            <div id = "errors"></div>
+
+
+          <div class="form-group">
+              <label for="usernameInput">Username</label>
+              <input type="text" name = "username" class="form-control" id="usernameInput">
+            </div>
+
+          <div class="form-group">
+            <label for="passwordInput">Password</label>
+            <input type="password" name = "password" class="form-control" id="passwordInput" aria-describedby="passwordHelpBlock">
+          </div>
+
+        <a class="btn btn-primary" href="index.html" role="button">Log in</a>
+
     
+    </div>
+    <script>
+        include("header.html", "#header");
+    </script>
 </body>

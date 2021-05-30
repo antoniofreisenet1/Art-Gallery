@@ -2,6 +2,9 @@
 
 import {messageRenderer} from "/js/renderers/messages.js";
 import {userValidator} from "/js/users.js";
+import {sessionManager} from "/js/utils/session.js"
+import {authAPI} from "/js/api/auth.js";
+
 function main() {
     addRegisterSubmitHandler();
 
@@ -48,7 +51,14 @@ function registerSubmit(event){
         }
         
     }else{
-        //enviamos formulario
+        authAPI.register(formData)
+            .then(resp => {
+                let token = resp.sessionToken;
+                let userData = resp.user;
+                sessionManager.login(token, userData);
+                window.location.href = "index.html";
+            })
+            .catch(err => messageRenderer.showErrorMessage(err));
     }
 
     console.log(firstName + " " + lastName);

@@ -1,7 +1,8 @@
-"use strict";
+"use strict"
 
-import {photosAPI} from "/js/api/photos.js"
-import {messageRenderer} from "/js/renderers/messages.js"
+import {photosAPI} from "/js/api/photos.js";
+import {messageRenderer} from "/js/renderers/messages.js";
+import {sessionManager} from "/js/utils/session.js";
 
 function main(){
     let photoForm = document.getElementById("form-upload-photo");
@@ -42,7 +43,7 @@ function handleFormSubmit(event){
         //Enviar el formulario
         if(photoId == null){
             //Creando una foto
-            formData.append("userId", 1);
+            formData.append("userId", sessionManager.getLoggedId());
             photosAPI.create(formData)
             .then(resp => window.location.href = "index.html")
             .catch(err => messageRenderer.showErrorMessage(err));
