@@ -22,8 +22,9 @@ function addLoggedUsername(){
         //Invitado
         username = "Guest";
     }
-
+    console.log(username);
     headerTitle.textContent = username;
+
 }
 
 function addLogoutHandler(){

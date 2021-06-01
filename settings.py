@@ -11,8 +11,8 @@ SECRET_KEY = "Change this to any random string"
 DB_CONN = {
     "host": "127.0.0.1",
     "port": 3306,
-    "username": "iissi_user",
-    "password": "iissi$user",
+    "username": "IISSI_USER",
+    "password": "iissi$root",
     "database": "gallery",
 }
 

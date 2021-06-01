@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Photo details</title>
+    
     <link rel="stylesheet" href="/css/styles.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1,
@@ -22,7 +22,10 @@
 
         <script src="/js/libs/bootstrap.min.js"></script>
 
-        <script src = "/js/photo_detail.js"></script>
+
+        <script src = "/js/libs/axios.min.js"></script>
+
+        <script src = "/js/photo_detail.js" type = "module"></script>
 
         <script src = "/js/header.js" type = "module"></script>
 </head>
@@ -31,96 +34,73 @@
 
 
     <div class = "container">
-        
-    <div class = "row">
-       
-        <div class = "col-md" id = "actions-col">
-            <h1 class = "text-center">Titulo</h1>
-
-            <hr>
-            <button type = "button" class = "btn btn-primary">Rate
-                <form>
-                    <input type="number" max="5" min="1" step="1">
-                </form>
-                <a href=""></a>
-            </button>
-        
-            <hr>
-        
-            <button type = "button" class = "btn btn-danger">Report
-                <a href=""></a>
-            </button>
-        
-
-        
-            <hr>
-            
-            <button type = "button" class = "btn btn-light">Comment
-                <a href=""></a>
-            </button>
-        
-            <hr>
-        
-            <div class = "text-center">
-                Comentarios
-            </div>
-
-            <hr>
-
-            <div id = "comment-box">
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-                <div>Hola</div>
-            </div>
-
-            <div id = "tags-box">
-                <h1 class = "text-center">Tags</h1>
-
-                <a href="tag_search.html">
-                    <div class = "col-md">#photo</div>
-                </a>
-
-                <a href="tag_search.html">
-                    <div class = "col-md">#tag</div>
-                </a>
-
-                <a href="tag_search.html">
-                    <div class = "col-md">#dog</div>
-                </a>
-            </div>
-
-            <div class = "text-center">
-                <button type = "button" class = "btn btn-warning">Delete image
-                    <a href=""></a>
-                </button>
-            
-                <button type = "button" class = "btn btn-secondary">Edit image
-                    <a href=""></a>
-                </button>
-
+        <div class = "row text-center">
+            <div class = "col-md">
+                <h1>Photo detail</h1>
+                <div id = "errors"></div>
             </div>
         </div>
-        <div class = "col-md-9">
-            <img class = "img-fluid" id = "main-picture" src="https://cnnespanol.cnn.com/wp-content/uploads/2020/07/200703104728-labrador-retriever-stock-super-169.jpg?quality=100&strip=info" alt="Title">
-            
 
+        <div class = "row">
+        
+            <div class = "col-md-3" id = "actions-col">
+
+                <hr>
+
+                <div id = "comment-box">
+                    <h1>Comentarios</h1>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                    <div>Hola</div>
+                </div>
+            
+                <div id = "tags-box">
+                    <h1 class = "text-center">Tags</h1>
+                
+                    <a href="tag_search.html">
+                        <div class = "col-md">#photo</div>
+                    </a>
+                
+                    <a href="tag_search.html">
+                        <div class = "col-md">#tag</div>
+                    </a>
+                
+                    <a href="tag_search.html">
+                        <div class = "col-md">#dog</div>
+                    </a>
+                </div>
+            
+                <div class = "text-center">
+                    <button type = "button" class = "btn btn-warning" id = "delete-photo-button">Delete image
+                        <a href=""></a>
+                    </button>
+                
+                    <button type = "button" class = "btn btn-secondary" id = "edit-photo-button">Edit image
+                        <a href=""></a>
+                    </button>
+                
+                </div>
+            </div>
+            <div class = "col-md-" id = "photo-detail">
+                
+                
+            
+            </div>
         </div>
-    </div>
 
  
 
     </div>
 
-    
 
 </body>
 </html>

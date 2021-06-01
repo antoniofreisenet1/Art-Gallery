@@ -25,3 +25,35 @@ CREATE TABLE Photos (
 );
 
 -- Create the rest of your tables...
+
+CREATE OR REPLACE TABLE score(
+	scoreId INT NOT NULL AUTO_INCREMENT,
+	photoId INT(11) NOT NULL,
+	userId INT(11) NOT NULL,
+	value FLOAT(5,0) NOT NULL,
+	scoreDate DATE NOT NULL,
+	PRIMARY KEY (scoreId),
+	FOREIGN KEY (photoId) REFERENCES photos (photoId) ON DELETE CASCADE
+	FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE
+	
+);
+
+CREATE OR REPLACE TABLE comnt(
+	comntId INT NOT NULL AUTO_INCREMENT,
+	userId INT(11) NOT NULL,
+	photoId INT(11) NOT NULL,
+	comntDate DATE NOT NULL,
+	comntText VARCHAR(160) NOT NULL,
+	PRIMARY KEY (comntId),
+	FOREIGN KEY (userId) REFERENCES users(userId) ON DELETE CASCADE,
+	FOREIGN KEY (photoId) REFERENCES photos(photoId) ON DELETE CASCADE 
+	
+
+);
+
+CREATE OR REPLACE TABLE words(
+	wordId INT NOT NULL AUTO_INCREMENT,
+	text VARCHAR(20) NOT NULL,
+	PRIMARY KEY (wordId)
+);
+

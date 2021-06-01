@@ -1,7 +1,7 @@
 "use strict"
 
-import { photosAPI } from "./api/photos.js";
-import {photosRenderer} from "/js/renderers/photos.js";
+import { photosAPI } from "/js/api/photos.js";
+import {photoRenderer} from "/js/renderers/photos.js";
 import {messageRenderer} from "/js/renderers/messages.js";
 import {sessionManager} from "/js/utils/session.js";
 
@@ -22,7 +22,7 @@ function main(){
     deleteBtn.onclick = handleDeletePhoto;
 
     let editBtn = document.getElementById("edit-photo-button");
-    editBtn.onclick = handelEditPhoto;
+    editBtn.onclick = handleEditPhoto;
 
 }
 
@@ -41,6 +41,7 @@ function loadPhotoDetails(){
         .then(photo => {
             let detailColumn = document.getElementById("photo-detail");
             let photoDetail = photoRenderer.asDetails(photo);
+
             detailColumn.appendChild(photoDetail);
         })
         .catch(err => messageRenderer.showErrorMessage(err));
@@ -55,7 +56,7 @@ function handleDeletePhoto(event){
     }
 }
 
-function handelEditPhoto(event) {
+function handleEditPhoto(event) {
     window.location.href = "edit_photo.html?photoId=" + photoId;
 }
 

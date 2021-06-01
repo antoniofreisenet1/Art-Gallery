@@ -36,15 +36,16 @@ function main() {
 
   //hasta aqui el contenido de js con imagenes html
 
+  
     loadGallery();
-    addButtonHandler();
-    
+    cardMouseHandler();
 
 }
 
 
+
 function cardMouseHandler(){
-    let card = document.querySelector("div.card");
+    let cards = document.querySelectorAll("div.card");
     for(let card of cards){
         card.onMouseEnter = handleMouseEnterCard;
         card.onmMouseLeave = handleMouseLeaveCard;
@@ -64,14 +65,7 @@ function handleMouseEnterCard(event) {
     targetCard.style.color = "white";
 }
 
-function addButtonHandler(){
-    let button = document.getElementById("button-test");
-    button.onclick = function(event){
-        let target = event.target;
-        target.style.backgroundColor = "red";
 
-    };
-}
 
 function loadGallery() {
 
@@ -79,31 +73,13 @@ function loadGallery() {
 
     photosAPI.getAll()
         .then(photos =>{
-            let gallery = gelleryRenderer.asCardGallery(photos);
+            let gallery = galleryRenderer.asCardGallery(photos);
             galleryDiv.appendChild(gallery);
             cardMouseHandler();
         })
         .catch(err => messageRenderer.showErrorMessage(err));
 
 
-    let photoData = {
-        title:"Dog",
-        description:"A picture of a dog",
-        url:"https://cnnespanol.cnn.com/wp-content/uploads/2020/07/200703104728-labrador-retriever-stock-super-169.jpg?quality=100&strip=info"
-    }
-
-
-    let html = `<div class = "col-md-4">
-    <div class="card text-center">
-        <img src=${photoData.url}>
-            <a href="photo_detail.html"></a>
-          <h5 class="card-title">${photoData.title}</h5>
-          <p class="card-text">${photoData.description}</p>
-        </div>
-    </div>
-</div>`
-
-let card = photoRenderer.asCard(photoData);
-galleryDiv.appendChild(card);
 }
 document.addEventListener("DOMContentLoaded", main);
+

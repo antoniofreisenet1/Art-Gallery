@@ -3,21 +3,24 @@
 import {parseHTML} from "/js/utils/parseHTML.js";
 
 
+
 const photoRenderer = {
     asCard: function (photo) {
         let html = `<div class = "col-md-4">
         <div class="card text-center">
-            <img src=${photoData.url}>
-                <a href="photo_detail.html?photoId=${photo.photoId}"></a>
-              <h5 class="card-title">${photoData.title}</h5>
-              <p class="card-text">${photoData.description}</p>
+            <a href="photo_detail.html?photoId=${photo.photoId}">
+                <img src=${photo.url} class = "card-img-top" alt = "${photo.description}">
+            </a>
+            <div class = "card-body">
+              <h5 class="card-title">${photo.title}</h5>
+              <p class="card-text">${photo.description}</p>
             </div>
         </div>
     </div>`;
 
 
     let card = parseHTML(html);
-    galleryDiv.appendChil(card);
+    return card;
     },
     
 
@@ -36,6 +39,7 @@ const photoRenderer = {
         let details = parseHTML(html);
         return details;
     },
+
 
 };
 

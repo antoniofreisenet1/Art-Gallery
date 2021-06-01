@@ -11,6 +11,14 @@ const photosAPI = {
         });
     },
 
+    getById: function(photoId) {
+        return new Promise(function(resolve, reject){
+            axios.get(BASE_URL + "/photos/" + photoId, requestOptions)
+            .then(response => resolve(response.data[0]))
+            .catch(err => reject(err.response.data.message));
+        });
+    },
+
     create: function(formData) {
         return new Promise(function(resolve, reject){
             axios.post(BASE_URL + "/photos", formData, requestOptions)
@@ -22,7 +30,7 @@ const photosAPI = {
 
     update: function(photoId, formData) {
         return new Promise(function(resolve, reject){
-            axios.post(BASE_URL + "/photos", photoId, formData, requestOptions)
+            axios.post(BASE_URL + "/photos" + photoId, formData, requestOptions)
             .then(response => resolve(response.data))
             .catch(err => reject(err.response.data.message));
         })
@@ -31,7 +39,7 @@ const photosAPI = {
 
     delete: function(formData) {
         return new Promise(function(resolve, reject){
-            axios.post(BASE_URL + "/photos", formData, requestOptions)
+            axios.delete(BASE_URL + "/photos", formData, requestOptions)
             .then(response => resolve(response.data))
             .catch(err => reject(err.response.data.message));
         })
