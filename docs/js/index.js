@@ -38,7 +38,7 @@ function main() {
 
   
     loadGallery();
-    cardMouseHandler();
+
 
 }
 

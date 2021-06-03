@@ -34,6 +34,9 @@ const userValidator = {
             errors.push("The username must have more than 2 characters");
         }
 
+        if(password.length <3){
+            errors.push("The password is too short");
+        }
         return errors;
 
     },

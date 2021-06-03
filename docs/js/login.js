@@ -3,10 +3,11 @@
 import {authAPI} from "/js/api/auth.js";
 import {messageRenderer} from "/js/renderers/messages.js";
 import {sessionManager} from "/js/utils/session.js";
-import {userValidator} from "/js/users.js"
+import {userValidator} from "/js/users.js";
+
 
 function main(){
-    let loginForm = document.getElementById("columna-form");
+    let loginForm = document.getElementById("login-form");
     loginForm.onsubmit = handleLoginSubmit;
 
 }
@@ -15,7 +16,7 @@ function handleLoginSubmit(event){
     event.preventDefault();
 
     let form = event.target;
-    let formData = new formData(form);
+    let formData = new FormData(form);
 
     let errorsDiv = document.getElementById("errors");
     errorsDiv.innerHTML = "";

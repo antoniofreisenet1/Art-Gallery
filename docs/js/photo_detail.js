@@ -9,9 +9,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const photoId = urlParams.get("photoId");
 
 
-function _(id) {
-    return document.getElementById(id);
-}
+
 
 function main(){
 
@@ -51,7 +49,7 @@ function handleDeletePhoto(event){
     let answer = confirm("Are you sure you want to delete this photo?");
     if(answer){
         photosAPI.delete(photoId)
-        .then(resp => window.location.html = "index.html")
+        .then(resp => window.location.href = "index.html")
         .catch(err => messageRenderer.showErrorMessage(err));
     }
 }

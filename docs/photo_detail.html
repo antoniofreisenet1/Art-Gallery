@@ -22,6 +22,8 @@
 
         <script src="/js/libs/bootstrap.min.js"></script>
 
+        <script src = "/js/utils/include.js"></script>
+
 
         <script src = "/js/libs/axios.min.js"></script>
 
@@ -31,7 +33,7 @@
 </head>
 
 <body>
-
+    <div id = "header"></div>
 
     <div class = "container">
         <div class = "row text-center">
@@ -81,16 +83,16 @@
             
                 <div class = "text-center">
                     <button type = "button" class = "btn btn-warning" id = "delete-photo-button">Delete image
-                        <a href=""></a>
+                        
                     </button>
                 
                     <button type = "button" class = "btn btn-secondary" id = "edit-photo-button">Edit image
-                        <a href=""></a>
+                        
                     </button>
                 
                 </div>
             </div>
-            <div class = "col-md-" id = "photo-detail">
+            <div class = "col-md-9" id = "photo-detail">
                 
                 
             
@@ -100,7 +102,7 @@
  
 
     </div>
-
+    <script>include("header.html", "#header")</script>
 
 </body>
 </html>

@@ -4,9 +4,18 @@ import {photosAPI} from "/js/api/photos.js";
 import {messageRenderer} from "/js/renderers/messages.js";
 import {sessionManager} from "/js/utils/session.js";
 
+const urlParams = new URLSearchParams(window.location.search);
+const photoId = urlParams.get("photoId");
+let currentPhoto = null;
+
 function main(){
     let photoForm = document.getElementById("form-upload-photo");
     photoForm.onsubmit = handleFormSubmit;
+
+
+    if (photoId !== null) {
+        loadPhotoInfo();
+    }
 }
 
 function loadPhotoInfo(){
@@ -35,20 +44,27 @@ function handleFormSubmit(event){
     let form = event.target;
     let formData = new FormData(form);
 
-    let errors = [] //TODO: hacer la validacion con un validador
+    let errors = [] 
+
+    if(title.length === 0){
+        errors.push("The title must not be empty.")
+    }
 
     if (errors.length > 0){
-        //TODO: Mostrar los errores.
+       for(let error of errors){
+        messageRenderer.showErrorMessage(error);
+    }
     } else{
-        //Enviar el formulario
+    //    Enviar el formulario
+        
         if(photoId == null){
-            //Creando una foto
+        //    Creando una foto
             formData.append("userId", sessionManager.getLoggedId());
             photosAPI.create(formData)
             .then(resp => window.location.href = "index.html")
             .catch(err => messageRenderer.showErrorMessage(err));
         } else {
-            //Editando una foto
+        //    Editando una foto
             formData.append("userId", currentPhoto.userId);
             photosAPI.update(photoId, formData)
             .then(resp => window.location.href = "photo_detail.html?photoId=" + photoId)

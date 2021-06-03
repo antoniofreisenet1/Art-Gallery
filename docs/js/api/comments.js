@@ -2,18 +2,18 @@
 
 import{BASE_URL, requestOptions} from "/js/api/common.js";
 
-const photosAPI = {
+const commentsAPI = {
     getAll: function() {
         return new Promise(function(resolve, reject){
-            axios.get(BASE_URL + "/photos", requestOptions)
+            axios.get(BASE_URL + "/comnt", requestOptions)
             .then(response => resolve(response.data))
             .catch(err => reject(err.response.data.message));
         });
     },
 
-    getById: function(photoId) {
+    getById: function(comntId) {
         return new Promise(function(resolve, reject){
-            axios.get(BASE_URL + "/photos/" + photoId, requestOptions)
+            axios.get(BASE_URL + "/comnt" + comntId, requestOptions)
             .then(response => resolve(response.data[0]))
             .catch(err => reject(err.response.data.message));
         });
@@ -21,30 +21,28 @@ const photosAPI = {
 
     create: function(formData) {
         return new Promise(function(resolve, reject){
-            axios.post(BASE_URL + "/photos", formData, requestOptions)
+            axios.post(BASE_URL + "/comnt", formData, requestOptions)
             .then(response => resolve(response.data))
             .catch(err => reject(err.response.data.message));
         })
 
     },
 
-    update: function(photoId, formData) {
+    update: function(comntId, formData) {
         return new Promise(function(resolve, reject){
-            axios.put(BASE_URL + "/photos/" + photoId, formData, requestOptions)
+            axios.put(BASE_URL + "/comnt" + comntId, formData, requestOptions)
             .then(response => resolve(response.data))
             .catch(err => reject(err.response.data.message));
         })
 
     },
 
-    delete: function(photoId) {
+    delete: function(comntId) {
         return new Promise(function(resolve, reject){
-            axios.delete(BASE_URL + "/photos/" + photoId, requestOptions)
+            axios.delete(BASE_URL + "/comnt" + comntId, formData, requestOptions)
             .then(response => resolve(response.data))
             .catch(err => reject(err.response.data.message));
         })
 
     },
 };
-
-export {photosAPI};

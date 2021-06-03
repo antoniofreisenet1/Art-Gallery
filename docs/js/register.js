@@ -6,14 +6,14 @@ import {sessionManager} from "/js/utils/session.js"
 import {authAPI} from "/js/api/auth.js";
 
 function main() {
-    addRegisterSubmitHandler();
-
-}
-
-function addRegisterSubmitHandler(){
-    let form = document.getElementById("register-form");
+    
+    let form = document.getElementById("form-register");
     form.onsubmit = registerSubmit;
+
+
 }
+
+
 
 function registerSubmit(event){
     event.preventDefault();
@@ -21,33 +21,13 @@ function registerSubmit(event){
     let errorsDiv = document.getElementById("errors");
     errorsDiv.innerHTML = "";
 
-    messageRenderer.showWarningMessage("Soy un warning");
-    messageRenderer.showSuccessMessage("Soy un success");
-
-
     let form = event.target;
     let formData = new FormData(form);
     let errors = userValidator.validateRegister(formData);
 
-
-
-    if(password1 !== password2){
-        errors.push("Passwords do not match");
-    }
-
-    if(firstName.length < 3){
-        errors.push("The first name must have more than 2 characters");
-
-    }
-
-    if(lastName.length < 3){
-        errors.push("The last name must have more than 2 characters");
-
-    }
-
     if(errors.length > 0){
         for(let error of errors){
-            messageRenderer.showErrorMessage();
+            messageRenderer.showErrorMessage(error);
         }
         
     }else{

@@ -18,8 +18,10 @@
         <script src="/js/libs/bootstrap.min.js"></script>
 
         <script src="/js/utils/include.js"></script>
+        <script src = "/js/libs/axios.min.js"></script>
 
-        <script src = "/js/login.js"></script>
+        <script src = "/js/login.js" type = "module"></script>
+        <script src = "/js/header.js" type = "module"></script>
 
 </head>
 
@@ -28,7 +30,8 @@
 
     <div class = "container">
       <div class = "row justify-content-md-center">
-        <div class = "col-md-7" id = "columna-form">
+        <div class = "col-md-7" id = "login-style">
+          
             <div class = "col-md">
                 <h1>Log in</h1>
                 
@@ -37,7 +40,7 @@
 
             <div id = "errors"></div>
 
-
+            <form id = "login-form">
           <div class="form-group">
               <label for="usernameInput">Username</label>
               <input type="text" name = "username" class="form-control" id="usernameInput">
@@ -47,11 +50,9 @@
             <label for="passwordInput">Password</label>
             <input type="password" name = "password" class="form-control" id="passwordInput" aria-describedby="passwordHelpBlock">
           </div>
-
-        <a class="btn btn-primary" href="index.html" role="button">Log in</a>
-
-    
-    </div>
+          <button type = "submit" class = "btn btn-primary" id = "submit-button">Log in</button>
+        </form>
+      </div>
     <script>
         include("header.html", "#header");
     </script>
