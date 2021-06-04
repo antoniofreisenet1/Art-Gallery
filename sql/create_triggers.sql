@@ -26,6 +26,20 @@ CREATE OR REPLACE TRIGGER triggerInappropriateLanguage
     END// 
 DELIMITER ;
 
+DELIMITER //
+CREATE OR REPLACE TRIGGER triggerInappropriateLanguage2
+    BEFORE UPDATE ON Photos FOR EACH ROW
+    BEGIN
+        IF EXISTS(SELECT text FROM words WHERE text = NEW.title) THEN 
+                  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'The title doesnt meet the community guidelines.';
+        END IF;
+        IF EXISTS(SELECT text FROM words WHERE text = NEW.description) THEN 
+                  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'The description doesnt meet the community guidelines.';
+        END IF;
+
+    END// 
+DELIMITER ;
+
 
 
 DELIMITER //
