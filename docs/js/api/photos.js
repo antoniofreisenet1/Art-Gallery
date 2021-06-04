@@ -19,6 +19,24 @@ const photosAPI = {
         });
     },
 
+    getUsuario: function(userId) { //
+        return new Promise (function(resolve,reject) {
+            axios
+            .get(BASE_URL + "/photos/" + userId, requestOptions)
+            .then(response => resolve(response.data))
+            .catch(error => reject(error.response.data.message));
+        });
+    },
+    
+    getInvitado: function(userId) { //
+        return new Promise (function(resolve,reject) {
+            axios
+            .get(BASE_URL + "/photos?userId=" + userId + "&visibility=Public", requestOptions)
+            .then(response => resolve(response.data))
+            .catch(error => reject(error.response.data.message));
+        });
+    },
+
     create: function(formData) {
         return new Promise(function(resolve, reject){
             axios.post(BASE_URL + "/photos", formData, requestOptions)

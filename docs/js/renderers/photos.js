@@ -29,7 +29,7 @@ const photoRenderer = {
         
         <h2>${photo.title}</h2>
         <h4>${photo.description}</h4>
-        <p>Uploaded by <a href="">@user1</a> on ${photo.date}</p>
+        <p>Uploaded by <a href="profile.html?userId=${photo.userId}" class="user-link">${photo.userId}</a> on ${photo.date}</p>
         <hr>
 
         <img src="${photo.url}" class="card-img-top" alt="${photo.description}">
@@ -39,7 +39,6 @@ const photoRenderer = {
         let details = parseHTML(html);
         return details;
     },
-
 
 };
 

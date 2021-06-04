@@ -51,35 +51,9 @@
 
                 <div id = "comment-box">
                     <h1>Comentarios</h1>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
-                    <div>Hola</div>
+
                 </div>
             
-                <div id = "tags-box">
-                    <h1 class = "text-center">Tags</h1>
-                
-                    <a href="tag_search.html">
-                        <div class = "col-md">#photo</div>
-                    </a>
-                
-                    <a href="tag_search.html">
-                        <div class = "col-md">#tag</div>
-                    </a>
-                
-                    <a href="tag_search.html">
-                        <div class = "col-md">#dog</div>
-                    </a>
-                </div>
             
                 <div class = "text-center">
                     <button type = "button" class = "btn btn-warning" id = "delete-photo-button">Delete image
@@ -89,7 +63,23 @@
                     <button type = "button" class = "btn btn-secondary" id = "edit-photo-button">Edit image
                         
                     </button>
-                
+                    <form class="ml-2" id="form-rating">
+                        <div class="row"> 
+                            <select id="rating-input" name="value" class="rounded">
+                                <option value="0">☆☆☆☆☆</option>
+                                <option value="1">★☆☆☆☆</option>
+                                <option value="2">★★☆☆☆</option>
+                                <option value="3">★★★☆☆</option>
+                                <option value="4">★★★★☆</option>
+                                <option value="5">★★★★★</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <button id="button-rate" type= "submit" class= "btn btn-primary">
+                                    Rate
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class = "col-md-9" id = "photo-detail">

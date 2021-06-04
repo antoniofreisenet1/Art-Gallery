@@ -1,6 +1,8 @@
 "use strict"
 
 import { photosAPI } from "/js/api/photos.js";
+import {scoreAPI} from "/js/api/score.js";
+
 import {photoRenderer} from "/js/renderers/photos.js";
 import {messageRenderer} from "/js/renderers/messages.js";
 import {sessionManager} from "/js/utils/session.js";
@@ -21,6 +23,9 @@ function main(){
 
     let editBtn = document.getElementById("edit-photo-button");
     editBtn.onclick = handleEditPhoto;
+
+    let rateform = document.getElementById("form-rating")
+    rateform.onsubmit = handleRatePhoto;
 
 }
 
@@ -56,6 +61,20 @@ function handleDeletePhoto(event){
 
 function handleEditPhoto(event) {
     window.location.href = "edit_photo.html?photoId=" + photoId;
+}
+
+function handleRatePhoto(event) {
+    event.preventDefault();
+    let ratingForm = event.target;
+    let ratingData = new FormData(ratingForm);
+
+    let userId = sessionManager.getLoggedId();
+        ratingData.append("userId", userId);
+        ratingData.append("photoId", photoId);
+
+    scoreAPI.create(ratingData)
+        .then(resp => messageRenderer.showSuccessMessage("The picture has been rated correctly"))
+        .catch(error => messageRenderer.showErrorMessage(error));
 }
 
 document.addEventListener("DOMContentLoaded", main);

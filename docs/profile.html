@@ -21,7 +21,9 @@
         
         <script src = "/js/header.js" type = "module"></script>
 
-        <script src = "/js/users.js" type = "module"></script>
+        <script src = "/js/profile.js" type = "module"> </script>
+
+        <script src = "/js/libs/axios.min.js"></script>
 </head>
 
 <body>
@@ -30,68 +32,23 @@
     
 
     <div class = "container">
+        <div id = "errors"></div>
 
         <div class = "row">
-            <div class = "col-md-4">
-                <img src="https://static.wikia.nocookie.net/mamarre-estudios-espanol/images/5/59/Fa612f5c7a6f3de494d573462cffa40b.jpg/revision/latest?cb=20200405033240&path-prefix=es" alt="pfp" class="img-thumbnail">
-                <h1 class = "text-center">Username</h1>
-
-                <button class = "btn btn-primary disabled">Change photo</button>
-
-                <button class = "btn btn-primary disabled">Remove photo</button>
-
-                <button class = "btn btn-light">Follow</button>
-
-                <button class = "btn btn-danger">Block</button>
-
+            <div class = "col-md-4" id = "profile-details">
+                <img src="" alt="pfp" class="img-thumbnail" id = "pfp">
+                <div class = "row" id = "username"></div>
+                <div class = "row" id = "firstname"></div>
+                <div class = "row" id = "surname"></div>
+                <div class = "row" id = "email"></div>
+                <div class = "row" id = "telephone"></div>
             </div>
 
             <div class = "col-md-6">
                 <h1 class = "text-center">Most recent pictures</h1>
                 <hr>
-        <div class = "row text-center">
-          <!--Code for an image placeholder.-->
-            <div class = "col-md">
-                <a href="photo_detail.html">
-                 <div class = "photo-block">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwU5_PGPGn0rXle2Oi5EISqiWkelYgLmaJbw&usqp=CAU" alt="amogus grape" class="img-thumbnail">
-                  </div>
-                </a>
-                <h3 class = "photo-title">Titulo de ejemplo</h3>
-
-            </div>
-            <div class = "col-md">
-              <a href="photo_detail.html">
-                <div class = "photo-block">
-                  <img src="https://pbs.twimg.com/media/EiYag37UcAAFWg8.jpg" alt="chungu" class="img-thumbnail">
-                </div>
-              </a>
-              <h3 class = "photo-title">Titulo de ejemplo</h3>
-            </div>
-
-            <div class = "col-md">
-              <a href="photo_detail.html">
-                <div class = "photo-block">
-                  <img src="https://pbs.twimg.com/media/Eu2PotkXMAg35EZ.jpg" alt="amogutrashcan" class="img-thumbnail">
-                </div>
-              </a>
-              
-              <h3 class = "photo-title">Titulo de ejemplo</h3>
-            </div>
-
-            <div class = "col-md">
-              <a href="photo_detail.html">
-                <div class = "photo-block">
-                  <img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/38/385f92062d4ce33a5835a97d4bb7daf40a54485b_full.jpg" alt="amogu" class="img-thumbnail">
-                </div>
-              </a>
-              <h3 class = "photo-title">Titulo de ejemplo</h3>
-            </div>
-        </div>
-
-        <hr>
-            </div>
-        </div>
+        <div class = "row text-center" id = "divGallery"></div>
+  
         
     </div>
 

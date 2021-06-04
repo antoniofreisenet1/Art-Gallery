@@ -3,7 +3,7 @@ from silence.decorators import endpoint
 @endpoint(
     route="/photos",
     method="GET",
-    sql="SELECT * FROM Photos"
+    sql="SELECT * FROM photos"
 )
 def get_all():
     pass
@@ -13,7 +13,7 @@ def get_all():
 @endpoint(
     route="/photos/$photoId",
     method="GET",
-    sql="SELECT * FROM Photos WHERE photoId = $photoId"
+    sql="SELECT * FROM photos WHERE photoId = $photoId"
 )
 def get_by_id():
     pass
@@ -23,7 +23,7 @@ def get_by_id():
 @endpoint(
     route="/photos",
     method="POST",
-    sql="INSERT INTO Photos (title, description, url, visibility, userId) VALUES ($title, $description, $url, $visibility, $userId)",
+    sql="INSERT INTO photos (title, description, url, visibility, userId) VALUES ($title, $description, $url, $visibility, $userId)",
     description="Creates a new photo",
     auth_required=True,
 )
@@ -35,7 +35,7 @@ def create(title, description, url, visibility, userId):
 @endpoint(
     route="/photos/$photoId",
     method="PUT",
-    sql="UPDATE Photos SET title = $title, description = $description, url = $url, visibility = $visibility WHERE photoId = $photoId",
+    sql="UPDATE photos SET title = $title, description = $description, url = $url, visibility = $visibility WHERE photoId = $photoId",
     description="Updates an existing photo",
     auth_required=True,
 )
@@ -47,7 +47,7 @@ def update(title, description, url, visibility):
 @endpoint(
     route="/photos/$photoId",
     method="DELETE",
-    sql="DELETE FROM Photos WHERE photoId = $photoId",
+    sql="DELETE FROM photos WHERE photoId = $photoId",
     description="Removes a photo",
     auth_required=True,
 )

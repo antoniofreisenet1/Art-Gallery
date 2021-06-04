@@ -3,10 +3,11 @@
 import {messageRenderer} from "/js/renderers/messages.js";
 import {photosAPI} from "/js/api/photos.js";
 
-import {parseHTML} from "/js/utils/parseHTML.js";
-
-import {photoRenderer} from "/js/renderers/photos.js";
+import {sessionManager} from "/js/utils/session.js";
+import {usersAPI} from "/js/api/users.js";
 import {galleryRenderer} from "/js/renderers/gallery.js";
+
+
 
 function main() {
    //let myDiv = document.getElementById("test-div");
@@ -38,6 +39,7 @@ function main() {
 
   
     loadGallery();
+    cardMouseHandler();
 
 
 }
@@ -69,15 +71,30 @@ function handleMouseEnterCard(event) {
 
 function loadGallery() {
 
-    let galleryDiv = document.getElementById("gallery");
+    let galleryContainer = document.getElementById("gallery");
 
-    photosAPI.getAll()
-        .then(photos =>{
+    if(sessionManager.getLoggedId() !== null){
+        photosAPI.getUsuario(userId)
+        .then(photos => {
             let gallery = galleryRenderer.asCardGallery(photos);
-            galleryDiv.appendChild(gallery);
-            cardMouseHandler();
+            galleryContainer.appendChild(gallery);
+            let cards = document.querySelectorAll("div.card");
+            
+            
         })
-        .catch(err => messageRenderer.showErrorMessage(err));
+        .catch(error => messageRenderer.showErrorAsAlert(error));
+
+    }
+    else{
+        photosAPI.getInvitado(userId)
+        .then(photos => {
+            let gallery = galleryRenderer.asCardGallery(photos);
+            galleryContainer.appendChild(gallery);
+            
+            
+        })
+        .catch(error => messageRenderer.showErrorAsAlert(error));
+    }
 
 
 }

@@ -21,7 +21,9 @@ DB_CONN = {
 SQL_SCRIPTS = [
     "create_tables.sql",
     "create_views.sql",
+    "create_triggers.sql",
     "populate_database.sql"
+
 ]
 
 # The port in which the API and the web server will be deployed
