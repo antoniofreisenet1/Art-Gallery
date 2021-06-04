@@ -6,11 +6,11 @@ const scoreRenderer = {
 
     asScore: function(score){
         let html = `<div class = "col-md" id = "score-block">
-        Rating: ${score.value}
+        Rating: ${score}
         </div>`;
 
-        let score = parseHTML(html);
-        return score;
+        let scores = parseHTML(html);
+        return scores;
 
     },
 };

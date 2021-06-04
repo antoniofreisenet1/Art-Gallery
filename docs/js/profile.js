@@ -8,10 +8,14 @@ import {parseHTML} from "/js/utils/parseHTML.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const userId = urlParams.get("userId");
+
 function main() {
     let galleryContainer = document.getElementById("divGallery");
         UserData();
-            if(sessionManager.getLoggedId()===userId){
+        if(sessionManager.getLoggedId()===null){
+            window.location.href = "login.html";
+        }else{
+            if(sessionManager.getLoggedId()!==userId){
                 photosAPI.getUsuario(userId)
                 .then(photos => {
                     let gallery = galleryRenderer.asCardGallery(photos);
@@ -20,7 +24,7 @@ function main() {
                     
                     
                 })
-                .catch(error => messageRenderer.showErrorAsAlert(error));
+                .catch(error => messageRenderer.showErrorMessage(error));
 
             }
             else{
@@ -31,8 +35,9 @@ function main() {
                     
                     
                 })
-                .catch(error => messageRenderer.showErrorAsAlert(error));
+                .catch(error => messageRenderer.showErrorMessage(error));
             }
+        }
 }
 
 function UserData() {
@@ -59,7 +64,7 @@ function UserData() {
     })
 };
 
-////
+
 
 
 document.addEventListener( "DOMContentLoaded", main);

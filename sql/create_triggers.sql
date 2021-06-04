@@ -16,15 +16,14 @@ DELIMITER //
 CREATE OR REPLACE TRIGGER triggerInappropriateLanguage
     BEFORE INSERT ON Photos FOR EACH ROW
     BEGIN
-        DECLARE tituloC INT DEFAULT 0;
-        DECLARE descripcionC INT DEFAULT 0;
-        SET tituloC = (SELECT COUNT(photoId) FROM photos WHERE photos.title LIKE (SELECT text FROM words));
-        SET descripcionC = (SELECT COUNT(photoId) FROM photos WHERE photos.description LIKE (SELECT text FROM words));
-        IF(tituloC > 0 OR descripcionC >0) THEN 
-            SIGNAL SQLSTATE '45000' SET message_text = 
-			'The title or description do not meet the community guidelines.';
+        IF EXISTS(SELECT text FROM words WHERE text = NEW.title) THEN 
+                  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'The title doesnt meet the community guidelines.';
         END IF;
-      END//
+        IF EXISTS(SELECT text FROM words WHERE text = NEW.description) THEN 
+                  SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'The description doesnt meet the community guidelines.';
+        END IF;
+
+    END// 
 DELIMITER ;
 
 --RN-C03: DOS USUARIOS NO PUEDEN TENER EL MISMO EMAIL O NOMBRE DE USUARIO

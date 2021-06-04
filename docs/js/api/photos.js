@@ -11,6 +11,14 @@ const photosAPI = {
         });
     },
 
+    getAllPublic: function() {
+        return new Promise(function(resolve, reject){
+            axios.get(BASE_URL + "/photos?visibility=Public", requestOptions)
+            .then(response => resolve(response.data))
+            .catch(err => reject(err.response.data.message));
+        });
+    },
+
     getById: function(photoId) {
         return new Promise(function(resolve, reject){
             axios.get(BASE_URL + "/photos/" + photoId, requestOptions)
@@ -19,16 +27,16 @@ const photosAPI = {
         });
     },
 
-    getUsuario: function(userId) { //
+    getUsuario: function(userId) {
         return new Promise (function(resolve,reject) {
             axios
-            .get(BASE_URL + "/photos/" + userId, requestOptions)
+            .get(BASE_URL + "/photos?userId=" + userId, requestOptions)
             .then(response => resolve(response.data))
             .catch(error => reject(error.response.data.message));
         });
     },
     
-    getInvitado: function(userId) { //
+    getInvitado: function(userId) {
         return new Promise (function(resolve,reject) {
             axios
             .get(BASE_URL + "/photos?userId=" + userId + "&visibility=Public", requestOptions)

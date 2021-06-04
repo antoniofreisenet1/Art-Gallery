@@ -17,6 +17,7 @@ function addLoggedUsername(){
         //Si tiene la sesion iniciada
         let userData = sessionManager.getLoggedUser();
         username = "@" + userData.username;
+        headerTitle.href = `profile.html?userId=${userData.userId}`;
     }
     else{
         //Invitado

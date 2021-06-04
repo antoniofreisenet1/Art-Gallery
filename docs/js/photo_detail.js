@@ -6,6 +6,7 @@ import {scoreAPI} from "/js/api/score.js";
 import {photoRenderer} from "/js/renderers/photos.js";
 import {messageRenderer} from "/js/renderers/messages.js";
 import {sessionManager} from "/js/utils/session.js";
+import {scoreRenderer} from "/js/renderers/score.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const photoId = urlParams.get("photoId");
@@ -46,6 +47,21 @@ function loadPhotoDetails(){
             let photoDetail = photoRenderer.asDetails(photo);
 
             detailColumn.appendChild(photoDetail);
+        })
+        .catch(err => messageRenderer.showErrorMessage(err));
+
+    scoreAPI
+        .getByPhotoId(photoId)
+        .then(score => {
+            let scoreColumn = document.getElementById("ratings");
+            let arrayScore =Object.values(score);
+            let aux = Object.values(arrayScore[0]);
+            console.log(aux);
+            console.log(arrayScore);
+            let scores = scoreRenderer.asScore(aux[0]);
+            console.log(scores);
+
+            scoreColumn.appendChild(scores);
         })
         .catch(err => messageRenderer.showErrorMessage(err));
 }

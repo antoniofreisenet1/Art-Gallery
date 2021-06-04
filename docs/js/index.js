@@ -74,7 +74,7 @@ function loadGallery() {
     let galleryContainer = document.getElementById("gallery");
 
     if(sessionManager.getLoggedId() !== null){
-        photosAPI.getUsuario(userId)
+        photosAPI.getAll()
         .then(photos => {
             let gallery = galleryRenderer.asCardGallery(photos);
             galleryContainer.appendChild(gallery);
@@ -86,7 +86,7 @@ function loadGallery() {
 
     }
     else{
-        photosAPI.getInvitado(userId)
+        photosAPI.getAllPublic()
         .then(photos => {
             let gallery = galleryRenderer.asCardGallery(photos);
             galleryContainer.appendChild(gallery);
