@@ -9,12 +9,12 @@ const userValidator = {
         let password1 = formData.get("password");
         let password2 = formData.get("password2");
 
-        if(firstName.length <1){
-            errors.push("The first name must not be empty.");
+        if(firstName.length <2){
+            errors.push("The first name is too short.");
         }
 
-        if(lastName.length <1){
-            errors.push("THe last name must not be empty.");
+        if(lastName.length <2){
+            errors.push("THe last name is too short.");
         }
 
         if(password1 !== password2){
